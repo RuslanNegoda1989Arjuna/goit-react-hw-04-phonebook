@@ -1,5 +1,5 @@
 import { nanoid } from 'nanoid';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { PhonebookContainer, Title, TitleCont } from './App.styled';
 import { ContactList } from './ContactList/ContactList';
 import { Filter } from './Filter/Filter';
@@ -7,27 +7,14 @@ import { load, save } from './LocalStorage/LocalStorage';
 import { PhonebookForm } from './PhonebookForm/PhonebookForm';
 
 export const App = () => {
-  const [contacts, setContacts] = useState([]);
+  const [contacts, setContacts] = useState(load('contacts') ?? []);
   const [filter, setFilter] = useState('');
 
   // додавання в  localStorage
-  // componentDidUpdate(prevProps, prevState) {
-  //   const { contacts } = this.state;
 
-  //   if (contacts !== prevState.contacts) {
-  //     save('contacts', contacts);
-  //   }
-  // }
-
-  // з локалсторидж при першому завантаженні забираємо данні
-
-  // componentDidMount() {
-  //   const lstContacts = load('contacts');
-
-  //   if (lstContacts) {
-  //     this.setState({ contacts: lstContacts });
-  //   }
-  // }
+  useEffect(() => {
+    save('contacts', contacts);
+  }, [contacts]);
 
   const addContact = addContact => {
     // запис id до кожного контакту за допомогою бібіліотеки

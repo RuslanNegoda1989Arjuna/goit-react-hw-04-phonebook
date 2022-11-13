@@ -36,7 +36,7 @@ export const PhonebookForm = ({ onSubmit }) => {
               required
             />
           </LabelIn>
-          <Button type="submit">Submit</Button>
+          <Button type="submit">Add contact</Button>
         </FormUs>
       </Formik>
     </>

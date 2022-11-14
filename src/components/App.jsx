@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { PhonebookContainer, Title, TitleCont } from './App.styled';
 import { ContactList } from './ContactList/ContactList';
 import { Filter } from './Filter/Filter';
-import { load, save } from './LocalStorage/LocalStorage';
+import { load, save } from '../LocalStorage/LocalStorage';
 import { PhonebookForm } from './PhonebookForm/PhonebookForm';
 
 export const App = () => {
